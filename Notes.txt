@@ -1,0 +1,16 @@
+Statically typed language. Elm knows what you are doing.
+Once compiled and there are no errors, there is no errors in the browser.
+Fault-intolerant.
+Functional language. Pure functions. Only input and output, no side effects.
+All functions can be typed, and curried. e.g.: aFunctionExample: String -> Integer -> Float -> String
+Type aliases- shape data
+Union types allows you to describe new data types
+
+HTML.beginnerProgram
+    :  { model : model, view : model -> Html msg, update : msg -> model -> model }
+    -> Program Never
+Create a Program that specifies how your whole app should work. The essense of every Elm program is:
+
+Model — a nice representation of your application state.
+View — a function that turns models into HTML.
+Update — given a user-input messages and the model, produce a new model.

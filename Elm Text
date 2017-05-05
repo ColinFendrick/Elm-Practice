@@ -1,0 +1,35 @@
+import Html exposing (Html, text, div, button)
+import Html.Events exposing (onClick)
+
+import String
+
+type Msg = Increment | Decrement
+type alias Model = { count: Int }
+
+main: Program Never Model Msg
+main = Html.beginnerProgram
+  { model = newModel
+  , update = update
+  , view = view
+  }
+
+update: Msg -> Model -> Model
+update msg model =
+  case msg of
+    Increment ->
+      ({ model | count = model.count + 1 })
+    Decrement ->
+      ({ model | count = model.count - 1 })
+
+view: Model -> Html Msg
+view model =
+  div [] [
+    div [] [ text (toString model.count) ]
+    , button [ onClick Increment ] [ text "Increment" ]
+    , button [ onClick Decrement ] [ text "Decrement" ]
+    ]
+
+newModel = { count = 0 }
+
+
+-- model = Model 0 <-- cool way to create a new instace of Model
